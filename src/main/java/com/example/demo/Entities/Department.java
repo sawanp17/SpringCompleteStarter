@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
@@ -19,4 +20,14 @@ public class Department {
     private String name;
 
     private String location;
+
+    public Department(){
+
+    }
+    public Department(final Long departmentId, final String name, final String location) {
+        this.departmentId = departmentId;
+        this.name = name;
+        this.location = location;
+    }
+
 }
