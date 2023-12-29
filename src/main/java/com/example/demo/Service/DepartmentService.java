@@ -37,4 +37,12 @@ public class DepartmentService {
         return departmentOptional.get();
     }
 
+    public Department getDepartmentByName(final String name) throws DepartmentNotFoundException {
+        Optional<Department> departmentOptional = departmentRepository.findDepartmentByNameIgnoreCase(name);
+        if (departmentOptional.isEmpty()){
+            throw new DepartmentNotFoundException("Department with given name not found...");
+        }
+        return departmentOptional.get();
+    }
+
 }

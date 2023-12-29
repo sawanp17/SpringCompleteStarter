@@ -20,14 +20,19 @@ public class DepartmentController {
         return departmentService.addDepartment(department);
     }
 
-    @GetMapping("get/all")
+    @GetMapping("/get/all")
     public List<Department> getAllDepartments(){
         return departmentService.getAll();
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/getById/{id}")
     public Department getDepartmentById(@PathVariable("id") Long id) throws DepartmentNotFoundException {
         return departmentService.getDepartmentById(id);
+    }
+
+    @GetMapping("/getByName/{name}")
+    public Department getDepartmentById(@PathVariable("name") String name) throws DepartmentNotFoundException {
+        return departmentService.getDepartmentByName(name);
     }
 
 }
